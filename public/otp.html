@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OTP Authentication | Multi-Factor Authentication</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="js/otp.js" defer></script>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="index.html" class="brand">
+      <span class="icon-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.4 8.7 8 10 4.6-1.3 8-5 8-10V5l-8-3Z"/><path d="m9.5 12.5 2 2 3.5-4"/></svg>
+      </span>
+      Multi-Factor Authentication
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About MFA</a></li>
+      <li><a href="factors.html">Auth Factors</a></li>
+      <li><a href="password.html">Password</a></li>
+      <li><a href="register.html">Register</a></li>
+      <li><a href="otp.html" class="active">OTP</a></li>
+      <li><a href="tips.html">Security Tips</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section style="padding-bottom:24px;">
+    <div class="container">
+      <span class="eyebrow">Something You Have</span>
+      <h1 class="section-title">One-Time Password (OTP)</h1>
+      <p class="section-lead">An OTP is a temporary numeric code, usually 4–6 digits, sent to your phone or email during login. It's valid for a short time and can only be used once, which makes it a strong second factor even if your password has been compromised.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="container">
+      <div class="form-card center">
+        <div class="icon-badge center" style="margin-bottom:14px;">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+        </div>
+        <h2 style="font-size:1.25rem;">Enter Verification Code</h2>
+        <p style="font-size:0.9rem;">A 6-digit code has been sent to your registered mobile number.</p>
+
+        <p id="otpError" style="color:var(--danger); font-size:0.88rem; min-height:1.2em;"></p>
+        <p id="otpSuccess" style="color:var(--success); font-size:0.88rem; min-height:1.2em;"></p>
+
+        <form id="otpForm">
+          <div class="otp-row">
+            <input type="text" maxlength="1" inputmode="numeric">
+            <input type="text" maxlength="1" inputmode="numeric">
+            <input type="text" maxlength="1" inputmode="numeric">
+            <input type="text" maxlength="1" inputmode="numeric">
+            <input type="text" maxlength="1" inputmode="numeric">
+            <input type="text" maxlength="1" inputmode="numeric">
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Verify Code</button>
+        </form>
+
+        <p style="font-size:0.85rem; margin-top:18px;">Didn't receive a code? <a href="#" id="resendOtp">Resend OTP</a></p>
+      </div>
+
+      <p class="center" style="margin-top:24px;">
+        <span class="info-banner" style="display:inline-flex;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5"/><path d="M12 16h.01"/></svg>
+          Demo Mode — the OTP is printed to the server console (and browser console) instead of a real SMS/email.
+        </span>
+      </p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="icon-badge" style="width:32px;height:32px;">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;"><path d="M12 2 4 5v6c0 5 3.4 8.7 8 10 4.6-1.3 8-5 8-10V5l-8-3Z"/></svg>
+        </span>
+        Multi-Factor Authentication
+      </div>
+      <ul class="footer-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="factors.html">Factors</a></li>
+        <li><a href="tips.html">Security Tips</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <p class="footer-note">&copy; 2026 Multi-Factor Authentication Project.</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Authentication Factors | Multi-Factor Authentication</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="index.html" class="brand">
+      <span class="icon-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.4 8.7 8 10 4.6-1.3 8-5 8-10V5l-8-3Z"/><path d="m9.5 12.5 2 2 3.5-4"/></svg>
+      </span>
+      Multi-Factor Authentication
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About MFA</a></li>
+      <li><a href="factors.html" class="active">Auth Factors</a></li>
+      <li><a href="password.html">Password</a></li>
+      <li><a href="register.html">Register</a></li>
+      <li><a href="otp.html">OTP</a></li>
+      <li><a href="tips.html">Security Tips</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section style="padding-bottom:24px;">
+    <div class="container">
+      <span class="eyebrow">Authentication Factors</span>
+      <h1 class="section-title">The three main authentication factors</h1>
+      <p class="section-lead">MFA combines proofs from at least two of the categories below. Understanding each one helps explain why combining them is so effective.</p>
+    </div>
+  </section>
+
+  <!-- Something You Know -->
+  <section style="padding-top:0;">
+    <div class="container grid grid-2" style="align-items:center;">
+      <div class="placeholder-img">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/><circle cx="12" cy="15" r="1.5"/></svg>
+      </div>
+      <div>
+        <div class="icon-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+        </div>
+        <h2 style="font-size:1.4rem; margin-top:14px;">1. Something You Know</h2>
+        <p>This factor relies on private information stored in your memory — like a password, PIN, or the answer to a security question. It's the most common factor, but also the easiest to guess, reuse, or leak, which is why it's rarely used alone.</p>
+        <div class="card" style="margin-top:8px;">
+          <h3 style="margin-top:0;">Quick Facts</h3>
+          <p>Examples: Passwords · PINs · Security questions<br>Weakness: Can be guessed, phished, or leaked</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Something You Have -->
+  <section style="padding-top:0;">
+    <div class="container grid grid-2" style="align-items:center;">
+      <div>
+        <div class="icon-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+        </div>
+        <h2 style="font-size:1.4rem; margin-top:14px;">2. Something You Have</h2>
+        <p>This factor relies on a physical or digital item that only you possess — such as your smartphone, a one-time password (OTP), or a hardware security key. Because an attacker would need the actual device, this factor is much harder to compromise remotely.</p>
+        <div class="card" style="margin-top:8px;">
+          <h3 style="margin-top:0;">Quick Facts</h3>
+          <p>Examples: OTP codes · Security keys · Authenticator apps<br>Strength: Requires physical access to bypass</p>
+        </div>
+      </div>
+      <div class="placeholder-img">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M12 18h.01"/><path d="M9 6h6"/></svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- Something You Are -->
+  <section style="padding-top:0;">
+    <div class="container grid grid-2" style="align-items:center;">
+      <div class="placeholder-img">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a4 4 0 0 0-4 4v1a4 4 0 0 0 8 0V7a4 4 0 0 0-4-4Z"/><path d="M6 12c0 4 2.7 7 6 8 3.3-1 6-4 6-8"/></svg>
+      </div>
+      <div>
+        <div class="icon-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a4 4 0 0 0-4 4v1a4 4 0 0 0 8 0V7a4 4 0 0 0-4-4Z"/><path d="M6 12c0 4 2.7 7 6 8 3.3-1 6-4 6-8"/></svg>
+        </div>
+        <h2 style="font-size:1.4rem; margin-top:14px;">3. Something You Are</h2>
+        <p>This factor uses a unique biometric trait to confirm identity, such as a fingerprint, facial scan, or voice pattern. It's convenient and hard to replicate, though it usually requires dedicated hardware like a sensor or camera.</p>
+        <div class="card" style="margin-top:8px;">
+          <h3 style="margin-top:0;">Quick Facts</h3>
+          <p>Examples: Fingerprint · Face ID · Voice recognition<br>Strength: Unique to each individual</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="icon-badge" style="width:32px;height:32px;">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;"><path d="M12 2 4 5v6c0 5 3.4 8.7 8 10 4.6-1.3 8-5 8-10V5l-8-3Z"/></svg>
+        </span>
+        Multi-Factor Authentication
+      </div>
+      <ul class="footer-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="factors.html">Factors</a></li>
+        <li><a href="tips.html">Security Tips</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <p class="footer-note">&copy; 2026 Multi-Factor Authentication Project.</p>
+  </div>
+</footer>
+
+</body>
+</html>
