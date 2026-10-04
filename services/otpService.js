@@ -4,15 +4,13 @@
 // OTP_MODE controls delivery:
 //   "console"  -> code is printed to the server terminal + returned in the
 //                 API response (devOtp field) so you can test end-to-end
-//                 without any email/SMS setup. THIS IS THE DEFAULT.
+//                 without any email/SMS setup.
 //   "email"    -> code is emailed via Nodemailer using the SMTP_* values
 //                 in your .env file. Requires real credentials.
-//
-// Swap the mode by changing OTP_MODE below.
 
 const db = require('../db/database');
 
-const OTP_MODE = process.env.OTP_MODE || 'console'; // 'console' or 'email' — set OTP_MODE=email in .env for real emails
+const OTP_MODE = process.env.OTP_MODE || 'console';
 const OTP_LENGTH = Number(process.env.OTP_LENGTH || 6);
 const OTP_EXPIRY_MINUTES = Number(process.env.OTP_EXPIRY_MINUTES || 5);
 
@@ -33,8 +31,16 @@ async function createAndSendOtp(user) {
   ).run(user.id, code, expiresAt);
 
   if (OTP_MODE === 'email') {
-    await sendOtpEmail(user.email, code);
-    return { delivered: 'email' };
+    try {
+      await sendOtpEmail(user.email, code);
+      return { delivered: 'email' };
+    } catch (err) {
+      // Email failed (network/SMTP issue) — fall back to console so the
+      // demo still works, and log the real reason for debugging.
+      console.error('Email send failed, falling back to console OTP:', err.message);
+      console.log(`\n[OTP FALLBACK] Code for ${user.username} (${user.email}): ${code}\n`);
+      return { delivered: 'console', devOtp: code };
+    }
   }
 
   // console mode (default) — log it so you can see it while testing
@@ -71,14 +77,19 @@ function verifyOtp(userId, submittedCode) {
   return { ok: true };
 }
 
-// --- Optional real email sender (only used when OTP_MODE = 'email') ---
+// --- Email sender with IPv4 forced (fixes ETIMEDOUT on some cloud hosts) ---
 async function sendOtpEmail(toEmail, code) {
   const nodemailer = require('nodemailer');
 
+  const port = Number(process.env.SMTP_PORT || 587);
+
   const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
-    port: Number(process.env.SMTP_PORT || 587),
-    secure: false,
+    port: port,
+    secure: port === 465,
+    family: 4, // force IPv4 — fixes connection timeouts on some hosts
+    connectionTimeout: 10000,
+    greetingTimeout: 10000,
     auth: {
       user: process.env.SMTP_USER,
       pass: process.env.SMTP_PASS
