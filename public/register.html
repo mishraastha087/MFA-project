@@ -84,5 +84,44 @@
   </div>
 </footer>
 
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const passwordInputs = document.querySelectorAll('input[type="password"]');
+
+  passwordInputs.forEach((input) => {
+    const wrapper = document.createElement('div');
+    wrapper.style.position = 'relative';
+    input.parentNode.insertBefore(wrapper, input);
+    wrapper.appendChild(input);
+    input.style.paddingRight = '55px';
+
+    const toggleBtn = document.createElement('button');
+    toggleBtn.type = 'button';
+    toggleBtn.textContent = 'Show';
+    toggleBtn.style.position = 'absolute';
+    toggleBtn.style.right = '10px';
+    toggleBtn.style.top = '50%';
+    toggleBtn.style.transform = 'translateY(-50%)';
+    toggleBtn.style.background = 'none';
+    toggleBtn.style.border = 'none';
+    toggleBtn.style.cursor = 'pointer';
+    toggleBtn.style.fontSize = '0.8rem';
+    toggleBtn.style.color = '#2563eb';
+    toggleBtn.style.fontWeight = '600';
+    wrapper.appendChild(toggleBtn);
+
+    toggleBtn.addEventListener('click', () => {
+      if (input.type === 'password') {
+        input.type = 'text';
+        toggleBtn.textContent = 'Hide';
+      } else {
+        input.type = 'password';
+        toggleBtn.textContent = 'Show';
+      }
+    });
+  });
+});
+</script>
+
 </body>
 </html>
